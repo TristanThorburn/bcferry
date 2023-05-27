@@ -14,7 +14,7 @@ const LandingPage = (props) => {
                     source={require('../../assets/bcferries.png')}
                     style={styles.ferryLogo}
                     />
-                <Text style={styles.h1}>Unofficial App</Text>
+                <Text style={styles.heading}>Unofficial App</Text>
             </View>
             
             <View style={styles.loginContainer}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         width:325,
     },
-    h1:{
+    heading:{
         textAlign:'center',
         fontSize:20,
     },

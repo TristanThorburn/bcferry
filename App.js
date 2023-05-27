@@ -1,7 +1,7 @@
 import {View} from 'react-native'
 import { useState } from 'react';
-import LandingPage from './screens/landingPage';
-import FerryApp from './screens/ferryApp';
+import LandingPage from './screens/LandingPage';
+import FerryApp from './screens/FerryApp';
 
 const App = () =>{
   const [ loginMethod, setLoginMethod ] = useState('')
