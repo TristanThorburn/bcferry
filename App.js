@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {View} from 'react-native'
+import { useState } from 'react';
+import LandingPage from './screens/landingPage';
+import FerryApp from './screens/ferryApp';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>BC FERRY APP STARTED!</Text>
-      <StatusBar style="auto" />
+const App = () =>{
+  const [ loginMethod, setLoginMethod ] = useState('')
+
+  return(
+    <View>
+      {loginMethod === ''
+        ? <LandingPage 
+            setLoginMethod={setLoginMethod}
+            />
+        : loginMethod === 'Guest'
+          ? <FerryApp
+              loginMethod={loginMethod}
+              setLoginMethod={setLoginMethod}
+              />
+          : null
+      }
     </View>
-  );
-}
+  )
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
