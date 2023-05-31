@@ -11,7 +11,7 @@ const LandingPage = (props) => {
         <View style={styles.landingPage}>
             <View style={styles.logoContainer}>
                 <Image
-                    source={require('../../assets/bcferries.png')}
+                    source={require('../assets/bcferries.png')}
                     style={styles.ferryLogo}
                     />
                 <Text style={styles.heading}>Unofficial App</Text>
@@ -42,7 +42,7 @@ const LandingPage = (props) => {
 
             <View style={styles.footer}>
                 <Image 
-                    source={require('../../assets/ferryPicture.jpg')}
+                    source={require('../assets/ferryPicture.jpg')}
                     style={styles.ferryPicture}
                     />
                 <Text 
