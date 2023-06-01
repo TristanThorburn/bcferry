@@ -1,7 +1,52 @@
 import { View, Text, Image, StyleSheet, Pressable, Linking } from "react-native"
+import { useEffect, useState } from "react";
+import 'expo-dev-client';
+import {
+  GoogleSignin,
+  GoogleSigninButton,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 
 const LandingPage = (props) => {
+    GoogleSignin.configure({
+      webClientId: '884581971899-m8fsn37g6ks0dllvtsp111p2kuvpcsqb.apps.googleusercontent.com',
+    });
     const { setLoginMethod } = props
+    const [initializing, setInitializing] = useState(true);
+
+    const onGoogleButtonPress = async () => {
+        // Check if your device supports Google Play
+        await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+        // Get the users ID token
+        const { idToken } = await GoogleSignin.signIn();
+    
+        // Create a Google credential with the token
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    
+        // Sign-in the user with the credential
+        // return auth().signInWithCredential(googleCredential);
+
+        const user_sign_in = auth().signInWithCredential(googleCredential);
+        user_sign_in
+        .then((user) => {
+            console.log(user)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+    // Handle user state changes
+    const onAuthStateChanged = (user) => {
+        setLoginMethod(user);
+        if (initializing) setInitializing(false);
+    }
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        return subscriber;
+    }, []);
 
     const handleGuestLogin = () => {
         setLoginMethod('Guest')
@@ -18,10 +63,7 @@ const LandingPage = (props) => {
             </View>
             
             <View style={styles.loginContainer}>
-                <Pressable 
-                    style={styles.googleLogin}>
-                    <Text style={styles.loginText}>Log in with Google</Text>
-                </Pressable>
+                <GoogleSigninButton onPress={onGoogleButtonPress}/>
 
                 <Pressable 
                     style={styles.emailLogin}>

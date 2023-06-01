@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884581971899",
+    "project_id": "bcferryunofficial",
+    "storage_bucket": "bcferryunofficial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884581971899:android:cc45d07a4bd9e15cf0b69e",
+        "android_client_info": {
+          "package_name": "com.tristant.bcferry"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884581971899-1um945l21cr48msc1ht89thbofi4hmob.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tristant.bcferry",
+            "certificate_hash": "866f78f782d0f02da2c7c4472e7a95a748144bf0"
+          }
+        },
+        {
+          "client_id": "884581971899-idhn2v3ajj7iqhti2il0qck158fkdivh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tristant.bcferry",
+            "certificate_hash": "ff3208e2600cae8730727a6bec9a4b242d9860ed"
+          }
+        },
+        {
+          "client_id": "884581971899-m8fsn37g6ks0dllvtsp111p2kuvpcsqb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJ-QY6ZUvTOfqBcJOCPIDTI7Iw1HKAoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884581971899-m8fsn37g6ks0dllvtsp111p2kuvpcsqb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

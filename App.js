@@ -1,14 +1,15 @@
-import {View} from 'react-native'
+import {Button, View} from 'react-native'
 import { useState } from 'react';
 import LandingPage from './screens/LandingPage';
 import FerryApp from './screens/FerryApp';
 
+
 const App = () =>{
-  const [ loginMethod, setLoginMethod ] = useState('')
+  const [ loginMethod, setLoginMethod ] = useState(null)
 
   return(
     <View>
-      {loginMethod === ''
+      {loginMethod === '' || loginMethod === null
         ? <LandingPage 
             setLoginMethod={setLoginMethod}
             />
@@ -17,7 +18,12 @@ const App = () =>{
               loginMethod={loginMethod}
               setLoginMethod={setLoginMethod}
               />
-          : null
+          : loginMethod.email !== ''
+            ? <FerryApp
+                loginMethod={loginMethod}
+                setLoginMethod={setLoginMethod}
+                />
+            : null
       }
     </View>
   )
